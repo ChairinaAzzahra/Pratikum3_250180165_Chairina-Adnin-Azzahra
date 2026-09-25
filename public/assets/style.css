@@ -1,0 +1,175 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff9fa;
+    color: #4a3e3d;
+    line-height: 1.6;
+    padding: 24px;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #d8698b;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: #8c7a7b;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.alert-danger { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-form {
+    display: flex;
+    gap: 8px;
+    flex: 1 1 300px;
+}
+
+input, select, button {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #w2c0c7;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+}
+
+.btn-primary { background-color: #d8698b; color: white;}
+.btn-primary:hover { background-color: #c45274;}
+.btn-secondary { background-color: #6c757d; color: white;}
+.btn-edit { background-color: #f3a683; color: white;}
+.btn-delete { background-color: #e74c3c; color: white;}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.card {
+    flex: 1 1 240px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #f3dbe0;
+    box-shadow: 0 4px 15px rgba(216, 105, 139, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-tag {
+    align-self: flex-start;
+    background-color: #ffeef2;
+    color: #d8678b;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 12;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    color: #332729;
+    margin-bottom: 8px;
+}
+
+.card-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2e7d32;
+    margin-bottom: 4px;
+}
+
+.card-stock {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 16px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.card-actions .btn {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem
+    padding: 8px 10px;
+}
+
+.form-card {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 16px;
+    max-width: 540px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #f3dbe0;
+}
+
+.form-group {
+    margin-bottom: 18px
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+}
+
+.error-text {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
