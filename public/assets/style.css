@@ -62,7 +62,7 @@ input, select, button {
     font-size: 0.95rem;
     padding: 10px 14px;
     border-radius: 8px;
-    border: 1px solid #w2c0c7;
+    border: 1px solid #e2c0c7;
 }
 
 .btn {
@@ -109,7 +109,7 @@ input, select, button {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 700;
-    margin-bottom: 12;
+    margin-bottom: 12px;
 }
 
 .card-title {
@@ -140,7 +140,7 @@ input, select, button {
 .card-actions .btn {
     flex: 1;
     text-align: center;
-    font-size: 0.85rem
+    font-size: 0.85rem;
     padding: 8px 10px;
 }
 
@@ -155,7 +155,7 @@ input, select, button {
 }
 
 .form-group {
-    margin-bottom: 18px
+    margin-bottom: 18px;
 }
 
 .form-group label {
