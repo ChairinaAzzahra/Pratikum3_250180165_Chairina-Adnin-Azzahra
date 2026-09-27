@@ -12,12 +12,12 @@ $stmt = $pdo->prepare("SELECT * FROM products WHERE id = :id");
 $stmt->execute(['id' => $id]);
 $product = $stmt->fetch();
 
-if (!product) {
+if (!$product) {
   header("Location: index.php");
   exit;
 }
 
-$error = [];
+$errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $category = trim($_POST[''category] ?? 'Classic');
@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $checkStmt = $pdo->prepare("SELECT id FORM products WHERE name = :name AND id != :id");
+        $checkStmt = $pdo->prepare("SELECT id FROM products WHERE name = :name AND id != :id");
         $checkStmt->execute(['name' => $name, 'id' => $id]);
-        if ($checkStmt-fetch()) {
+        if ($checkStmt->fetch()) {
           $errors['name'] = "Nama varian ini sudah digunakan oleh macaroon lain.";
         }
     }
@@ -56,10 +56,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 } else {
-    $name = $products['name'];
-    $category = $products['category'];
-    $price_raw = $products['price'];
-    $stock_raw = $products['stock'];
+    $name = $product['name'];
+    $category = $product['category'];
+    $price_raw = $product['price'];
+    $stock_raw = $product['stock'];
+}
+
+$categories = ['Fruity', 'Classic', 'Savory', 'Chocolate', 'Nutty', 'Seasonal', 'Tropical', 'Speciality', 'Citrus', 'Matcha']
+
+if (!empty($category) && !in_array($category, $categories)) {
+    $categories[] = $category;
 }
 ?>
 <!DOCTYPE html>
@@ -73,21 +79,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <header>
             <h1>Edit Varian Macaroon</h1>
+            <p>Perbarui informasi rasa, harga, atau stok macaroon</p>
         </header>
 
         <div class="form-card">
             <form method="POST" action="edit.php?id=<?= $id ?>">
+              <!-- Field Nama-->
               <div class="form-group">
                   <label for="name">Nama Macaroon</label>
-                  <input type="text" id="name" name="name" value="<?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?> required">
-                  <?php if (isset($errors[''name])): ?>
-                      <div class="error-text"><?= $errors['name'] ?></div>
+                  <input type="text" id="name" name="name" value="<?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?>" required>
+                  <?php if (isset($errors['name'])): ?>
+                      <div class="error-text"><?= htmlspecialchars($errors['name'], ENT_QUOTES, 'UTF-8') ?></div>
                   <?php endif; ?>
               </div>
 
+              <!-- Field Kategori /  Rasa-->
               <div class="form-group">
                   <label for="category">Kategori / Rasa</label>
                   <select id="category" name="category">
-                      <option value="" <?= $category === '' ? 'selected' : ''?>></option>
+                      <?php foreach ($categories as $cat): ?>
+                          <option value="<?= htmlspecialchars($cat, ENT_QUOTES, 'UTF-8') ?>"> <?= ($category === $cat) ? 'selected' : '' ?>>
+                              <?= htmmlspecialchars($cat. ENT_QUOTES, 'UTF-8')?>
+                          </option>
+                      <?php endforeach; ?>
+                  </select>
+                  <?php if (isset($erroes['category'])): ?>
+                      <div class="error-text"><?= htmlspecialchars($errors[''category], ENT_QUOTES, 'UTF-8') ?></div>
+              </div>
+
+              <!-- Field Harga-->
+              <div class="form-group">
     </div>
 </body>
