@@ -16,5 +16,5 @@ try {
     ]
   );
 } catch (PDOException $e) {
-  die("Koneksi Databse Gagal: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8'));
+  die("Koneksi Database Gagal: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8'));
 }
