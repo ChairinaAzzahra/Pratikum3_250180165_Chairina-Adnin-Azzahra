@@ -19,5 +19,5 @@ Aplikasi Web Manajemen Produk Toko Kue MAcaroon sederhana yang dibangun mengguna
 ## Cara Menjalankan di Lokal (XAMPP / Laragon)
 1. Clone repositori ini ke folder 'htdocs'(XAMPP) atau 'www'(Laragon).
 2. Pastikan service MySQL & Apache di XAMPP/Laragon sudah aktif.
-3. Buka browser dan akses 'http://localhost/Nama_Folder/public/' (Database & tabel akan dibuat otomatis saat halaman pertama kali diakses).
-4. *(Opsional jika ada error database macaroon tidak diketahui)* File SQL pendukung juga tersedia di 'database/macaroon_db.sql' jika ingin diimpor manual di phpMyAdmin.
+3. Buka browser dan akses 'http://localhost/TugasPratikum3_250180165_Chairina-Adnin-Azzahra-main/public/index.php' (Database & tabel akan dibuat otomatis saat halaman pertama kali diakses).
+4. *(Opsional jika ada error database macaroon tidak diketahui)* File SQL pendukung juga tersedia di 'database/macaroon_db.sql' jika ingin diimpor manual di phpMyAdmin 'http://localhost/phpmyadmin' 
