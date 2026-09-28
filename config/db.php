@@ -15,7 +15,7 @@ try {
     ]
   );
 
-  $pdo->exec("CREATE DATABASE IF NOT EXISTS `$dbname` CHARACTER SET utf8mb4_unicode_ci");
+  $pdo->exec("CREATE DATABASE IF NOT EXISTS `$dbname`;");
   $pdo->exec("USE `$dbname`;");
 
   $queryTable = "
