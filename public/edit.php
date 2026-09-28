@@ -20,7 +20,7 @@ if (!$product) {
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
-    $category = trim($_POST[''category] ?? 'Classic');
+    $category = trim($_POST['category'] ?? 'Classic');
     $price_raw = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
     $stock_raw = filter_input(INPUT_POST, 'stock', FILTER_VALIDATE_INT);
 
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stock_raw = $product['stock'];
 }
 
-$categories = ['Fruity', 'Classic', 'Savory', 'Chocolate', 'Nutty', 'Seasonal', 'Tropical', 'Speciality', 'Citrus', 'Matcha']
+$categories = ['Fruity', 'Classic', 'Savory', 'Chocolate', 'Nutty', 'Seasonal', 'Tropical', 'Speciality', 'Citrus', 'Matcha'];
 
 if (!empty($category) && !in_array($category, $categories)) {
     $categories[] = $category;
@@ -71,7 +71,7 @@ if (!empty($category) && !in_array($category, $categories)) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset+"UTF-8">
+    <meta charset="UTF-8">
     <title>Edit Macaroon - SweeTToothie Atelier </title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -84,7 +84,7 @@ if (!empty($category) && !in_array($category, $categories)) {
 
         <div class="form-card">
             <form method="POST" action="edit.php?id=<?= $id ?>">
-              <!-- Field Nama-->
+              <!-- Field Nama -->
               <div class="form-group">
                   <label for="name">Nama Macaroon</label>
                   <input type="text" id="name" name="name" value="<?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?>" required>
@@ -93,21 +93,46 @@ if (!empty($category) && !in_array($category, $categories)) {
                   <?php endif; ?>
               </div>
 
-              <!-- Field Kategori /  Rasa-->
+              <!-- Field Kategori /  Rasa -->
               <div class="form-group">
                   <label for="category">Kategori / Rasa</label>
                   <select id="category" name="category">
                       <?php foreach ($categories as $cat): ?>
-                          <option value="<?= htmlspecialchars($cat, ENT_QUOTES, 'UTF-8') ?>"> <?= ($category === $cat) ? 'selected' : '' ?>>
-                              <?= htmmlspecialchars($cat. ENT_QUOTES, 'UTF-8')?>
+                          <option value="<?= htmlspecialchars($cat, ENT_QUOTES, 'UTF-8') ?>" <?= ($category === $cat) ? 'selected' : '' ?>>
+                              <?= htmlspecialchars($cat, ENT_QUOTES, 'UTF-8')?>
                           </option>
                       <?php endforeach; ?>
                   </select>
-                  <?php if (isset($erroes['category'])): ?>
-                      <div class="error-text"><?= htmlspecialchars($errors[''category], ENT_QUOTES, 'UTF-8') ?></div>
+                  <?php if (isset($errors['category'])): ?>
+                      <div class="error-text"><?= htmlspecialchars($errors['category'], ENT_QUOTES, 'UTF-8') ?></div>
+                  <?php endif; ?>
               </div>
 
-              <!-- Field Harga-->
+              <!-- Field Harga -->
               <div class="form-group">
+                  <label for="price">Harga (Rp)</label>
+                  <input type="number" step="0.01" id="price" name="price" value="<?= htmlspecialchars($price_raw, ENT_QUOTES, 'UTF-8') ?>" required>
+                  <?php if (isset($errors['price'])): ?>
+                      <div class="error-text"><?= htmlspecialchars($errors['price'], ENT_QUOTES, 'UTF-8') ?></div>
+                  <?php endif; ?>
+              </div>
+
+              <!-- Field Stok -->
+              <div class="form-group">
+                  <label for="stock">Stock (Pcs)</label>
+                  <input type="number" id="stock" name="stock" value="<?= htmlspecialchars($stock_raw, ENT_QUOTES, 'UTF-8') ?>" required>
+                  <?php if (isset($errors['stock'])): ?>
+                      <div class="error-text"><?= htmlspecialchars($errors['stock'], ENT_QUOTES, 'UTF-8') ?></div>
+                  <?php endif; ?>
+              </div>
+
+              <!-- Tombol Aksi-->
+              <div class="toolbar" style="margin-top: 24px; margin-bottom: 0;">
+                  <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                  <a href="index.php" class="btn btn-secondary">Batal</a>
+              </div>
+            </form>
+        </div>
     </div>
 </body>
+</html>
