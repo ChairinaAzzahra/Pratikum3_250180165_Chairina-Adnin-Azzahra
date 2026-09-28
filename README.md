@@ -2,7 +2,11 @@
 Aplikasi Web Manajemen Produk Toko Kue MAcaroon sederhana yang dibangun menggunakan PHP Native, PDO MySQL, dan CSS Flexbox.
 
 ## Fitur Utama
-
+- *Create*: Menambah varian macaroon baru dengan validasi server side.
+- *Read*: Menampilkan daftar macaroon dalam bentuk kartu (card grid) yang responsif.
+- *Update*: Mengubah nama, kategori, harga, dan stok macaroon.
+- *Delete*: Menghapus data secara aman menggunakan method POST & Token CSRF.
+- *Search*: Mencari varian macaroon berdasarkan nama atau kategori
 
 ## Fitur Keamanan
 - Prepared Statement (PDO) untuk cegah SQL Injection.
