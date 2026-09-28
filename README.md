@@ -1,5 +1,5 @@
 # SweeTToothie Atelier (Product Manager)
-TugasPratikum3_250180165_Chairina-Adnin-Azzahra
+
 Aplikasi Web Manajemen Produk Toko Kue MAcaroon sederhana yang dibangun menggunakan PHP Native, PDO MySQL, dan CSS Flexbox.
 
 ## Fitur Utama
