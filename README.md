@@ -19,4 +19,4 @@ Aplikasi Web Manajemen Produk Toko Kue MAcaroon sederhana yang dibangun mengguna
 1. Clone repositori ini ke folder htdocs' atau 'ww'.
 2. Impor file database 'database/macaroon_db.sql' di phpMyAdmin.
 3. Sesuaikan konfigurasi database di 'config/db.php' jika diperlukan.
-4. Buka brower dan akses 
+4. Buka brower dan akses 'hhtp://localhost/folder_nama/public/'
